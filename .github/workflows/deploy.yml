@@ -18,7 +18,7 @@ jobs:
 
       - uses: actions/attest-build-provenance@v1
         with:
-          subject-path: dist
+          subject-path: dist/**
 
       - uses: actions/upload-artifact@v4
         with:
