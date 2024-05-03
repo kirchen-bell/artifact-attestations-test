@@ -10,14 +10,17 @@ jobs:
       attestations: write
 
     steps:
-      - name: generate release file
-        run: echo "this is test release file" > release.txt
+      - name: generate release files
+        run: |
+          mkdir dist
+          echo "this is test release file" > dist/release.txt
+          echo "this is test release file 2" > dist/release2.txt
 
       - uses: actions/attest-build-provenance@v1
         with:
-          subject-path: release.txt
+          subject-path: dist
 
       - uses: actions/upload-artifact@v4
         with:
           name: release
-          path: release.txt
+          path: dist
